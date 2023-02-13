@@ -1,0 +1,24 @@
+<?php
+
+// Make a form with a radio selector to apply to WooCommerce Product. 
+// Use plugin WooCommerce Gravity Forms Product Add-Ons
+// Make an ACF field for products - use check box
+// Add below to functions.php file in child-theme
+
+add_filter("gform_pre_render", "phoenix_class_dates_function");
+add_filter("gform_admin_pre_render", "phoenix_class_dates_function");
+
+function phoenix_class_dates_function($form){
+	if($form["id"] != 4) // need to isolate the forms that we don't want to apply this override to
+		return $form;
+    	$items = array();
+    	$metas = get_field('phoenix_class_dates'); // ACF key applied to products
+	if (is_array($metas)) {
+		foreach($metas as $meta) $items[] = array("value" => $meta, "text" => $meta);
+			}
+    	foreach($form["fields"] as &$field)
+        	if($field["id"] == 1){ // make sure to select the correct field ID that we want to over ride
+            	$field["choices"] = $items;
+        	}
+    	return $form;
+}
