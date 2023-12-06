@@ -10,3 +10,4 @@ gform.addFilter( 'gform_datepicker_options_pre_init', function( optionsObj, form
     return optionsObj;
 });
 
+// Find more features here -> https://docs.gravityforms.com/gform_datepicker_options_pre_init/#h-5-disable-specific-dates
