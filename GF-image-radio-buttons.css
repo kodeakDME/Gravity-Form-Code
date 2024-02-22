@@ -1,0 +1,13 @@
+/*
+To add an image radio selector in GF. 
+    1. Make the radio field in GF form and give it the class 'image_radio' and 'gf_list_3col' if you want the radio options inline (adjust the #col to the amount you need).
+    2. Make your fields using the <img src="#" width="200" />, filling in the URL of your image.
+    3. Add the below code to the page the form is on and adjust as needed. 
+*/
+
+.gform_wrapper.gravity-theme .image_radio .gfield-choice-input {
+    display: none;
+}
+.image_radio input[type=radio]:checked + label {
+    border: 3px solid red;
+}
